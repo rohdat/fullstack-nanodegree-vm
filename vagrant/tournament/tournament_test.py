@@ -73,7 +73,9 @@ def testReportMatches():
     Test that matches are reported properly.
     Test to confirm matches are deleted properly.
     """
+    print ("--- deleting matches")
     deleteMatches()
+    print ("--- deleting players")
     deletePlayers()
     registerPlayer("Bruno Walton")
     registerPlayer("Boots O'Neal")
@@ -92,6 +94,7 @@ def testReportMatches():
         elif i in (id2, id4) and w != 0:
             raise ValueError("Each match loser should have zero wins recorded.")
     print "7. After a match, players have updated standings."
+    print ("--- deleting matches")
     deleteMatches()
     standings = playerStandings()
     if len(standings) != 4:
@@ -148,6 +151,8 @@ def testPairings():
 
 
 if __name__ == '__main__':
+    connect()
+    newTable()
     testCount()
     testStandingsBeforeMatches()
     testReportMatches()
